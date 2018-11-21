@@ -3,13 +3,13 @@ import Posts from "./components/Posts"
 import PostForm from "./components/PostForm"
 import "./App.css";
 import  { Provider } from "react-redux";
-import Store from "./Store"
+import store from "./Store"
 
 class App extends Component {
   
   render() {
     return (
-        <Provider stor={stor} > 
+        <Provider store={store} > 
           <div className="App">
         
             <PostForm/>        

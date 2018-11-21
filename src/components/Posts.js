@@ -1,19 +1,15 @@
 import React, { Component } from "react";
+import {connect} from "react-redux";
+import {fetchPost} from "../actions/PostActions"
 
 class Posts extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      posts: []
-    };
-  }
-  componentDidMount() {
-    fetch("https://jsonplaceholder.typicode.com/posts")
-      .then(response => response.json())
-      .then(post => this.setState({ posts: post }));
+  
+  componentDidMount(){
+    this.props.fetchPost()
+    debugger;
   }
   renderPosts = () => {
-    const { posts } = this.state;
+    const { posts } = this.props;
 
     return posts.map(post => {
       return (
@@ -33,4 +29,7 @@ class Posts extends Component {
     );
   }
 }
-export default Posts;
+const mapStateToProps = ()=>{
+
+}
+export default connect(null,{fetchPost})(Posts);
